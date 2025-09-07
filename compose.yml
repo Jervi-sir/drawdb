@@ -1,16 +1,9 @@
 services:
   drawdb:
-    image: node:20-alpine
+    build:
+      context: .
+      target: production        # use the nginx stage
     container_name: drawdb
     ports:
-      - 5173:5173
-    working_dir: /var/www/html
-    volumes:
-      - ./:/var/www/html
-    command: sh -c "npm install && npm run dev -- --host"
-    networks:
-      - default
-
-networks:
-  default:
-    driver: bridge
+      - "8080:80"               # map host 8080 -> container 80 (nginx)
+    restart: unless-stopped
