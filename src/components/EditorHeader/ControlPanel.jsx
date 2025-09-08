@@ -1527,7 +1527,8 @@ export default function ControlPanel({
                 icon={<IconShareStroked />}
                 onClick={() => setModal(MODAL.SHARE)}
               >
-                {t("share")}
+                {/* {t("share")} */}
+                Save & Share
               </Button>
             )}
           </div>
